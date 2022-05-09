@@ -1,12 +1,10 @@
 package org.example.streamapi;
 
 import org.example.streamapi.model.Bodybuilder;
-import org.example.streamapi.model.Comparator;
 import org.example.streamapi.model.Friend;
 import org.example.streamapi.model.User;
 
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -15,7 +13,7 @@ import java.util.stream.IntStream;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-public class Extension implements Comparator {
+public class Extension{
     /*
         Given two int numbers a and b, return int [] with values that are in the range between smaller and bigger arg:
         - use IntStream.range
@@ -94,14 +92,18 @@ public class Extension implements Comparator {
         - then who is younger,
         - then name alphabetically.
      */
-    public List<String> sortBodybuilders(List<Bodybuilder> bodybuilders) {
-        // Implement me :)
-//
-//        Collections.sort(bodybuilders, (i, j) ->{
-//            return i.getLift().compare(j.getLift());
-//
-//        }
+    private Comparator<Bodybuilder> builderByNameLiftAge =
+            Comparator.comparingInt(Bodybuilder::getLift).reversed()
+                    .thenComparingInt(Bodybuilder::getAge)
+                    .thenComparing(Bodybuilder::getName);
 
-        return null;
+    public List<String> sortBodybuilders(List<Bodybuilder> bodybuilders) {
+        return bodybuilders.stream()
+                .sorted((java.util.Comparator<? super Bodybuilder>) builderByNameLiftAge)
+                .map(bodybuilder -> bodybuilder.getName())
+                .toList();
     }
-}
+    }
+
+
+
