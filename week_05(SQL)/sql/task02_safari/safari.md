@@ -53,6 +53,7 @@ Our users will be able to enter details for the animals in the park, their enclo
 - Populate the tables with some of your own data (you don't need to use more cereal mascots, unless you want to). Don't worry about the capacity restriction on enclosures for now, checking the would be handled by the back-end before the data gets sent to the database.
 - Write queries to find:
 	- The names of the animals in a given enclosure
+
 SELECT 
 enclosure.name,
 animal.name
@@ -61,6 +62,7 @@ enclosure
 INNER JOIN animal ON enclosure.id = animal.enclosure_id; 
 
 	- The names of the staff working in a given enclosure
+
 SELECT 
 assignment.enclosureid,
 staff.name
@@ -75,6 +77,7 @@ INNER JOIN staff ON assignment.employeeid = staff.employeenumber;
 Write queries to find:
 
 - The names of staff working in enclosures which are closed for maintenance
+
 SELECT 
 enclosure.closedformaintenance,
 staff.name,
@@ -84,6 +87,7 @@ enclosure
 INNER JOIN staff ON enclosure.closedformaintenance = TRUE; 
 
 - The name of the enclosure where the oldest animal lives. If there are two animals who are the same age choose the first one alphabetically.
+
 SELECT 
 enclosure.name,
 MAX(animal.age)
@@ -96,6 +100,7 @@ ORDER BY
 MAX(animal.age), animal.name DESC LIMIT 1;
 
 - The number of different animal types a given keeper has been assigned to work with.
+
 SELECT 
 staff.name,
 COUNT(DISTINCT animal.type)
@@ -108,6 +113,7 @@ GROUP BY
 staff.name;
 
 - The number of different keepers who have been assigned to work in a given enclosure
+
 SELECT 
 enclosure.name,
 COUNT(DISTINCT staff.name)
