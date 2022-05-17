@@ -1,15 +1,15 @@
 package com.bnta.chocolate.service;
 
-import com.bnta.chocolate.models.Chocolate;
 import com.bnta.chocolate.models.Estate;
 import com.bnta.chocolate.repositories.EstateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.EmptyStackException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EstateService {
@@ -51,7 +51,12 @@ public class EstateService {
         return estates;
     }
 
+    public Optional<Estate> getEstateById(@PathVariable Long id){
+        return estateRepository.findById(id);
+    }
+
     public Estate getEstate() {
+
         return estateRepository.getById(getEstate().getId());
     }
 

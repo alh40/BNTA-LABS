@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ChocolateService {
@@ -60,6 +62,10 @@ public class ChocolateService {
 
     public Chocolate save(Chocolate chocolate1){
         return chocolateRepository.save(chocolate1);
+    }
+
+    public Optional<Chocolate> getChocolateById(@PathVariable Long id){
+        return chocolateRepository.findById(id);
     }
 
     public Chocolate getChocolate() {

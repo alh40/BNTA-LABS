@@ -14,12 +14,11 @@ public class Estate {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     private String name;
-
 
     private String country;
 
+    @JsonIgnoreProperties({"estate"})
 @OneToMany(mappedBy = "estate", cascade = CascadeType.ALL)
     private List<Chocolate> chocolates;
 
