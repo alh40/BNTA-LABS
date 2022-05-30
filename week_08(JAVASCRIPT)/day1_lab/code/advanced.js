@@ -50,7 +50,6 @@ unitedKingdom = [
     if(unitedKingdom[i].name === "Wales"){
         unitedKingdom[i].capital = "Cardiff";
         wales = [i];
-        unitedKingdom.indexOf
         break;
     }
  }
