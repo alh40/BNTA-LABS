@@ -19,19 +19,11 @@ const modulus = function(a, b){
 }
 
 const even = function(a){
-    if(a % 2 == 0){
-        return true;
-    }else{
-        return false;
-    }
+    return modulus(a, 2);
 }
-// could use 'even' function instead. and change test results on odd, - reverse toBeTruthy, as toBeFalsy and vice versa.
+
 const odd = function(a){
-    if(a % 2 !== 0){
-        return true;
-    }else{
-        return false;
-    }
+    return !modulus(a, 2);
 }
 
 module.exports = { 
