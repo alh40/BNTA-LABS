@@ -198,3 +198,54 @@ describe('calculate total car price in stock', () => {
         expect(actual).toBe(expected);
     });
 });
+
+// Extensions
+
+describe('add cars to stock with limit', () => {
+
+    test('cannot add a car to stock, after limit reached using boolean result', () => {
+
+        let carTestArray = [
+            car1 = new Car("BMW", 24000, "Fast"),
+            car2 = new Car("BMW", 25000, "Fast"),
+            car3 = new Car("BMW", 30000, "Slow"),
+            car4 = new Car("BMW", 40000, "Slow"),
+            car5 = new Car("BMW", 50000, "Slow")
+        ];
+        let car6 = new Car("BMW", 60000, "Slow")
+
+        const dealership1 = new Dealership("BMW", 5, carTestArray)
+
+        addCarToStock(car6, dealership1);
+        
+        actual = carTestArray.includes(car6);
+        expected = false;
+        expect(actual).toBe(expected);
+
+
+    });
+
+    test('cannot add a car to stock, after limit reached', () => {
+
+        let carTestArray = [
+            car1 = new Car("BMW", 24000, "Fast"),
+            car2 = new Car("BMW", 25000, "Fast"),
+            car3 = new Car("BMW", 30000, "Slow"),
+            car4 = new Car("BMW", 40000, "Slow"),
+            car5 = new Car("BMW", 50000, "Slow")
+        ];
+        let car6 = new Car("BMW", 60000, "Slow")
+
+        const dealership1 = new Dealership("BMW", 5, carTestArray)
+
+        addCarToStock(car6, dealership1);
+        
+        actual = carTestArray.length;
+        expected = 5;
+        expect(actual).toBe(expected);
+
+
+    });
+
+});
+
