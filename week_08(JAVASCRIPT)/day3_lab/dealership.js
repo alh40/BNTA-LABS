@@ -40,7 +40,7 @@ const returnCarManufacturerArray = function(dealership1){
 const findAllCarsByManufacturer = function(brand, dealership1){
     arrayContainingAllCarsByManufacturers = [];
     for(cars in dealership1.carsInStock){
-        if(dealership1.carsInStock[cars].manufacturer == brand){
+        if(dealership1.carsInStock[cars].manufacturer === brand){
             arrayContainingAllCarsByManufacturers.push(dealership1.carsInStock.Car);
         }
     }

@@ -133,9 +133,9 @@ describe('Dealership', () => {
         addCarToStock(car3, dealership1);
         addCarToStock(car4, dealership1);
 
-        actualCarLength = carTestArray.length
+        actualCarLength = carTestArray.length;
 
-        expectedCarLength = 4;;
+        expectedCarLength = 4;
 
         expect(actualCarLength).toBe(expectedCarLength);
 
@@ -175,8 +175,8 @@ describe('Dealership', () => {
         const dealership1 = new Dealership("ManyCars", 5, carTestArray)
         
         myTestArray = findAllCarsByManufacturer("BMW", dealership1);
-        actual = myTestArray.length
-        expected = 2 ;
+        actual = myTestArray.length;
+        expected = 2;
         expect(actual).toBe(expected);
     });
 });
@@ -194,7 +194,7 @@ describe('calculate total car price in stock', () => {
         const dealership1 = new Dealership("ManyCars", 5, carTestArray)
         
         actual =findTotalValueOfCarsInStock(dealership1);
-        expected = 64000 ;
+        expected = 64000;
         expect(actual).toBe(expected);
     });
 });
